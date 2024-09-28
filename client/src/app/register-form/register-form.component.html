@@ -1,0 +1,48 @@
+<div class="container mt-5 ">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group text-light bg-dark p-4">
+            <h4 class="text-center">Create Account</h4>
+
+            <!-- Name Field with Validation -->
+            <div class="form-group">
+                <small id="helpId" class="form-text">Name</small>
+                <input type="text" formControlName="name" class="form-control" placeholder="">
+                <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                    <small *ngIf="name?.errors?.['required']" class="text-danger">Name is required.</small>
+                    <small *ngIf="name?.errors?.['minlength']" class="text-danger">Name must be at least 3 characters
+                        long.</small>
+                </div>
+            </div>
+
+            <!-- Email Field with Validation -->
+            <div class="form-group">
+                <small id="helpId" class="form-text">Email</small>
+                <input type="email" formControlName="email" class="form-control" placeholder="">
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                    <small *ngIf="email?.errors?.['required']" class="text-danger">Email is required.</small>
+                    <small *ngIf="email?.errors?.['email']" class="text-danger">Enter a valid email address.</small>
+                </div>
+            </div>
+
+            <!-- Password Field with Validation -->
+            <div class="form-group">
+                <small id="helpId" class="form-text">Password</small>
+                <input type="password" formControlName="password" class="form-control" placeholder="">
+                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                    <small *ngIf="password?.errors?.['required']" class="text-danger">Password is required.</small>
+                    <small *ngIf="password?.errors?.['minlength']" class="text-danger">Password must be at least 6
+                        characters long.</small>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="registrationForm.invalid">Create
+                Account</button>
+            <br>
+            <p class="text-center">Already have an account?
+                <a class="text-primary" href="#" role="button" routerLink="/login" routerLinkActive="active">Login</a>
+            </p>
+        </div>
+    </form>
+</div>
