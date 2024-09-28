@@ -5,7 +5,10 @@
 /tmp
 /out-tsc
 /bazel-out
+
+# My
 /src/environments
+nx.json
 
 # Node
 /node_modules
