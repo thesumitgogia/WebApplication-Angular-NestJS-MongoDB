@@ -1,0 +1,17 @@
+<div *ngIf="profile" class="container text-center text-light">
+    <span class="bg-dark display-4 p-2 rounded d-inline-block mt-3">
+        <fa-icon [icon]="faUser" class="text-light"></fa-icon>
+    </span>
+
+    <h1 class="mt-3">User Profile</h1>
+    <p><strong class="text-dark">Name:</strong> {{ profile.name }}</p>
+    <p><strong class="text-dark">Email:</strong> {{ profile.email }}</p>
+    <!-- <p><strong>Age:</strong> {{ profile.age }}</p> -->
+    <div *ngIf="error">
+        <p>{{ error }}</p>
+    </div>
+
+    <div>
+        <button *ngIf="userLogin" type="button" (click)="userLogout()"  name="" id="" class="btn btn-danger">Logout</button>
+    </div>
+</div>

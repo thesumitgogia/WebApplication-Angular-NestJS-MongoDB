@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../register.service';
+import { RegisterService } from './register.service';
 import { catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -10,8 +12,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class RegisterFormComponent {
   registrationForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private registerService: RegisterService) {
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router, private authService: AuthService) {
     this.registrationForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -32,6 +33,9 @@ export class RegisterFormComponent {
       this.registerService.registerUser(name, email, password).pipe(
         tap(response => {
           console.log('Response from API:', response);
+          localStorage.setItem("authToken", response.user.access_token);
+          this.authService.setLoginStatus(true); 
+          this.router.navigate(['/profile']);
         }),
         catchError(error => {
           console.error('Error occurred:', error);
