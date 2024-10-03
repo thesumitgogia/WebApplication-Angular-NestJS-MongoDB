@@ -14,8 +14,8 @@ export class RegisterService implements OnInit {
 
   // Method to get data
   registerUser(name: string, email: string, password: string): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(this.apiUrl, { name, email, password }, { headers });
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post(this.apiUrl, { name, email, password });
   }
 
 }
