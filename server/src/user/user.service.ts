@@ -6,16 +6,20 @@ import { LoginUserDto } from './dto/login-user/login-user';
 import { RegistesrUserDto } from './dto/register-user/register-user';
 import { comparePassword, hashPassword } from 'src/utils/passwordUtils';
 import { AuthService } from 'src/auth/auth.service';
+import { v4 as uuidv4 } from 'uuid';
+import { AccessTokenResponse } from 'src/auth/auth.interface';
 
 @Injectable()
 export class UserService {
     constructor(
         @InjectModel(User.name) private readonly userModel: Model<UserDocument>, private authService: AuthService
     ) { }
-    async createUser(createUserDto: RegistesrUserDto): Promise<{ access_token: string }> {
+    async createUser(createUserDto: RegistesrUserDto): Promise<AccessTokenResponse> {
         // const createdUser = new this.userModel(createUserDto);
+        const uid = uuidv4();
         const createdUser = new this.userModel(
             {
+                _id: uid,
                 name: createUserDto.name,
                 email: createUserDto.email,
                 password: await hashPassword(createUserDto.password)
@@ -25,7 +29,7 @@ export class UserService {
         return this.authService.login(user)
     }
 
-    async loginUser(loginUserDto: LoginUserDto): Promise<{ access_token: string }> {
+    async loginUser(loginUserDto: LoginUserDto): Promise<AccessTokenResponse> {
         const user = await this.userModel.findOne<UserDocument>({
             email: loginUserDto.email
         }

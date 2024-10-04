@@ -3,7 +3,7 @@ import { ProfileService } from './profile.service';
 import { catchError, tap } from 'rxjs';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-profile',

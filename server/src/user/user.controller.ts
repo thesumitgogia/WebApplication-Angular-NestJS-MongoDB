@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, UseGuards, Get, Request, Req } from '@nestjs/common';
+import { Controller, Post, Body, Res, UseGuards, Get, Request, Req, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UserService } from './user.service';
 import { Response } from 'express';
 import { LoginUserDto } from './dto/login-user/login-user';
@@ -10,7 +10,8 @@ import { AuthGuard } from '@nestjs/passport';
 export class UserController {
     constructor(private userService: UserService, private authService: AuthService) { }
 
-    @Post('register')   //sumit
+    @Post('register') 
+    @UsePipes(new ValidationPipe())
     async register(@Body() registesrUserDto: RegistesrUserDto, @Res() res: Response) {
         try {
             const user = await this.userService.createUser(registesrUserDto);
@@ -31,18 +32,6 @@ export class UserController {
             return res.status(400).json({ message: error.message });
         }
     }
-
-    // @UseGuards(JwtAuthGuard)
-    // @Post('protected')
-    // getProtected() {
-    //     return 'This route is protected';
-    // }
-
-    // @UseGuards(AuthGuard('jwt'))
-    // @Post('profile')
-    // getProfile(@Request() req) {
-    //     return req.user;  // Should contain the validated user
-    // }
 
 
     @UseGuards(AuthGuard('jwt'))

@@ -11,6 +11,6 @@ export class RegistesrUserDto {
     readonly email: string;
 
     @IsString()
-    @MinLength(8)
+    @MinLength(6)
     readonly password: string;
 }

@@ -1,11 +1,16 @@
 // user.schema.ts
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { UUID } from 'crypto';
 import { Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 export type UserDocument = User & Document;
 
 @Schema()
 export class User {
+    @Prop({ required: true, default: uuidv4 })
+    _id: UUID;
+
     @Prop({ required: true})
     name: string;
 

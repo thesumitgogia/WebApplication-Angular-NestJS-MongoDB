@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
