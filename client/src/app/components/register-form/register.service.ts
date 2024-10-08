@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class RegisterService implements OnInit {
-  private apiUrl = environment.userRegisterApi;
+  private apiUrl = environment.userRegisterApiClient;
 
   constructor(private http: HttpClient) { }
   ngOnInit(): void { }

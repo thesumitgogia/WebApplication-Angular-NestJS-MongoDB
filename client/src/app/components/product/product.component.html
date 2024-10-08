@@ -1,13 +1,15 @@
-<div class="card  text-light" style="width: 20rem; background-color: #313135;" >
-    <img src="https://i.pinimg.com/736x/81/43/c8/8143c8fcd833993aeaf3564db62c903d.jpg" class="card-img-top" alt="..."
-        height="200">
-    <div class="card-body">
-        <h5 class="card-title m-0">sac</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <div class="d-flex justify-content-between mt-4 mb-0">
-            <a href="/buy" class="btn btn-success">Add to cart</a>
-            <a href="/buy" class="text-primary mr-2">more info.</a>
+<div class="card text-light ml-2 w-" style=" background-color: #ffff; border:1px solid #DAA520; color: #DAA520;">
+    <img src={{product.imageUrl}} class="card-img-top" alt="..." height="200">
+    <div class="card-body" style="color: #B8860B;">
+        <h5 class="card-title m-0 mb-2"><a class="text" routerLink="/login" routerLinkActive="active">{{product.name}}</a></h5>
+        <p class="card-text">{{product.description}}</p>
+        <p><strong>Price: </strong>{{product.price}}</p>
+        <div class="d-flex justify-content-around" style="gap: 1.2rem;">
+            <!-- <nav> -->
+                <a href="/product/cart/add" class="btn btn-warning m-0 ">Add to cart</a>
+                <a href="/product/{{product._id}}" class="btn btn-secondary m-0 ">Detail</a>
+            <!-- </nav> -->
+            <!-- <a href="/buy" class="text-primary mr-2">more info</a> -->
         </div>
     </div>
 </div>

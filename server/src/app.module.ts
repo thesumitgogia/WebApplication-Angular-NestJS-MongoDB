@@ -1,18 +1,19 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import 'dotenv/config';
 import { AuthModule } from './auth/auth.module';
+import { ProductsModule } from './products/products.module';
+import 'dotenv/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGODB_API), // Connect to MongoDB
-    AuthModule,
+    MongooseModule.forRoot(process.env.MONGODB_API), // Connect to MongoDB MONGODV_LOCAL_API for local
     UserModule,
+    AuthModule,
+    ProductsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  exports:[]
 })
 export class AppModule {}

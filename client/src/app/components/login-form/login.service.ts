@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService implements OnInit {
-  private apiUrl = environment.userLoginApi ;
+  private apiUrl = environment.userLoginApiClient ;
 
   constructor(private http: HttpClient) { }
   ngOnInit(): void { }

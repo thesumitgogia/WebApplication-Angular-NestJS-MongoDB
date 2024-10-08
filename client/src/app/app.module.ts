@@ -10,9 +10,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { ShopComponent } from './components/shop/shop.component';
-import { ProductComponent } from './components/product/product.component';
-import { ShopModule } from './components/shop/shop.module';
+import { HeroSectionComponent } from "./hero-section/hero-section.component";
+import { FooterComponent } from "./footer/footer.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +19,8 @@ import { ShopModule } from './components/shop/shop.module';
     LoginFormComponent,
     RegisterFormComponent,
     ProfileComponent,
-    ProductComponent,
-    ShopComponent
+    FooterComponent
+    // HeroSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,7 @@ import { ShopModule } from './components/shop/shop.module';
     RouterModule,
     AppRoutingModule,
     FontAwesomeModule
-  ],
+],
   providers: [],
   bootstrap: [AppComponent]
 })
