@@ -1,13 +1,14 @@
 <div class="card text-light ml-2 w-" style=" background-color: #ffff; border:1px solid #DAA520; color: #DAA520;">
     <img src={{product.imageUrl}} class="card-img-top" alt="..." height="200">
     <div class="card-body" style="color: #B8860B;">
-        <h5 class="card-title m-0 mb-2"><a class="text" routerLink="/login" routerLinkActive="active">{{product.name}}</a></h5>
+        <h5 class="card-title m-0 mb-2"><a class="text" routerLink="/login"
+                routerLinkActive="active">{{product.name}}</a></h5>
         <p class="card-text">{{product.description}}</p>
         <p><strong>Price: </strong>{{product.price}}</p>
         <div class="d-flex justify-content-around" style="gap: 1.2rem;">
             <!-- <nav> -->
-                <a href="/product/cart/add" class="btn btn-warning m-0 ">Add to cart</a>
-                <a href="/product/{{product._id}}" class="btn btn-secondary m-0 ">Detail</a>
+            <a href="/product/cart/add" class="btn btn-warning m-0 ">Add to cart</a>
+            <a href="/product/{{product._id}}" class="btn btn-secondary m-0 ">Detail</a>
             <!-- </nav> -->
             <!-- <a href="/buy" class="text-primary mr-2">more info</a> -->
         </div>

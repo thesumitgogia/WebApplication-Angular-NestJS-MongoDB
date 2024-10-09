@@ -1,19 +1,25 @@
 <!-- <app-product [product]="products"></app-product> -->
-
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/shop">Products</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{productId}}</li>
+    </ol>
+</nav>
 <div class="container">
     <div class="detail-card d-flex mt-5" style="gap: 4.2rem;">
-        <img src={{products.imageUrl}} alt="" height="380" class="rounded-lg">
+        <img src={{products?.imageUrl}} alt="" height="380" class="rounded-lg">
         <div class="info mt-4 w-50">
-            <h4 >{{products.name}}</h4>
+            <h4>{{products?.name}}</h4>
             <p class="h6 font-weight-normal mt-2" style="line-height: 1.8rem;">
-                {{products.description}}
-                {{products.description}}
-                {{products.description}}
-                {{products.description}}
-                {{products.description}}
+                {{products?.description}}
+                {{products?.description}}
+                {{products?.description}}
+                {{products?.description}}
+                {{products?.description}}
             </p>
             <div class="d-flex mt-5 justify-content-around" style="gap: 4.2rem;">
-                <a class="btn btn-warning w-50">Buy</a> 
+                <a class="btn btn-warning w-50">Buy</a>
                 <a class="btn btn-secondary w-50">Contact</a>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { ProductComponent } from '../product/product.component';
 import { ShopService } from './shop.service';
@@ -112,14 +112,17 @@ export class ShopComponent implements OnInit {
     }
   ];
   products: any[] = [];
-
+  @Input() length: number = 0;
   ngOnInit(): void {
-    console.log("Yes");
     
     this.shopService.getProducts().subscribe({
       next: (data) => {
-        this.products = data; // Assign the received data to the products variable
-        console.log('Products:', this.products);
+        console.log('Products:', data);
+        if (this.length != 0) {
+          this.products = data.slice(0, this.length);
+        } else {
+          this.products = data;
+        }
       },
       error: (error) => {
         console.error('Error fetching products:', error);

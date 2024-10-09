@@ -1,8 +1,10 @@
-import { Controller, Post, Body, Res, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Controller, Post, Body, Res, UsePipes, ValidationPipe, UseGuards, Request } from '@nestjs/common';
 import { LoginUserDto } from '../auth/dto/login-user/login-user';
 import { RegistesrUserDto } from '../auth/dto/register-user/register-user';
 import { Response } from 'express';
 import { AuthService } from './auth.service';
+import { AuthGuard } from '@nestjs/passport';
+import { AuthenticatedRequest } from './user.interfacae';
 
 @Controller('api/auth/')
 export class AuthController {
@@ -52,11 +54,11 @@ export class AuthController {
     }
 
 
-    // @UseGuards(AuthGuard('jwt'))
-    // @Post('profile')
-    // getProfile(@Request() req: AuthenticatedRequest) {
-    //     return req.user;  // Should contain the validated user
-    // }
+    @UseGuards(AuthGuard('jwt'))
+    @Post('profile')
+    getProfile(@Request() req: AuthenticatedRequest) {
+        return req.user;  // Should contain the validated user
+    }
 
 
 }

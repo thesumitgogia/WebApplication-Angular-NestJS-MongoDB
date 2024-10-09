@@ -1,10 +1,7 @@
-<div class="container-fluid">
-    <div  class="row mt-4">
-        <div class="col mb-4" *ngFor="let item of products">
-            <!-- <li > -->
-                <app-product [product]="item"></app-product>
-            <!-- </li> -->
+<div class="container-fluid mb-5">  
+    <div class="row">
+        <div class="col-3  mt-5" *ngFor="let item of products">
+            <app-product [product]="item"></app-product>
         </div>
     </div>
-
 </div>
