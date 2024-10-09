@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Request } from '@nestjs/common';
+import { Controller, UseGuards, Request, Get } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthenticatedRequest } from 'src/auth/user.interfacae';
 
@@ -6,7 +6,7 @@ import { AuthenticatedRequest } from 'src/auth/user.interfacae';
 export class UserController {
     constructor() { }
     @UseGuards(AuthGuard('jwt'))
-    @Post('profile')
+    @Get('profile')
     getProfile(@Request() req: AuthenticatedRequest) {
         return req.user;  // Should contain the validated user
     }

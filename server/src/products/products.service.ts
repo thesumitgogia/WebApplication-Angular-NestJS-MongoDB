@@ -15,12 +15,12 @@ export class ProductsService {
     }
 
     async getProductById(productId: string): Promise<ProductDocument> {
-        console.log(productId);
+        // console.log(productId);
         // const id = new Types.ObjectId(productId)
         // console.log(productId);
 
         const products = await this.productModel.findById<ProductDocument>({ _id: productId}).exec();
-        console.log(products)
+        // console.log(products)
         return products;
     }
 
@@ -29,8 +29,11 @@ export class ProductsService {
         // const id = new Types.ObjectId(productId)
         // console.log(id);
 
+        // const products = await this.productModel.create(product);
         const products = await this.productModel.create(product);
         console.log(products)
         return products;
     }
+
+
 }

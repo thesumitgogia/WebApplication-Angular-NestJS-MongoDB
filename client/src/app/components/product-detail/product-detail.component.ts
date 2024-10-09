@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetailService } from './product-detail.service';
-import { ProductComponent } from "../components/product/product.component";
+import { ProductComponent } from "../product/product.component";
 
 @Component({
   selector: 'app-product-detail',
@@ -14,13 +14,13 @@ import { ProductComponent } from "../components/product/product.component";
 export class ProductDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productDetail: ProductDetailService, private router: Router) { }
   products: any;
-  productId: string |null = null;
+  productId: string | null = null;
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     console.log(this.router.url);
 
     // const productIdFromRoute = Number(routeParams.get('param'));
-  
+
 
 
     console.log(routeParams.get('param'))

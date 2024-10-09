@@ -4,6 +4,9 @@ import { UserModule } from './user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
+import { CartController } from './cart/cart.controller';
+import { CartService } from './cart/cart.service';
+import { CartModule } from './cart/cart.module';
 import 'dotenv/config';
 
 @Module({
@@ -12,8 +15,10 @@ import 'dotenv/config';
     UserModule,
     AuthModule,
     ProductsModule,
+    CartModule,
   ],
   controllers: [AppController],
-  exports:[]
+  exports:[],
+  providers: []
 })
 export class AppModule {}

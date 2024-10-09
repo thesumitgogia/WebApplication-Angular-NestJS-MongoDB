@@ -1,0 +1,29 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+    </ol>
+</nav>
+<div class="container">
+    <div >
+
+        
+        <div *ngFor="let product of products?.products; index as i">
+            <div class="detail-card d-flex mt-5  align-items-center justify-content-center" style="gap: 4.2rem;">
+                <img src={{product?.imageUrl}} alt="" height="150" class="rounded-lg">
+                <div class="info mt-4  d-flex flex-column">
+                    <h4>{{product?.name}}</h4>
+                    <p class="h6 font-weight-normal mt-2" style="line-height: 1.8rem;">
+                        {{product?.description}}
+                    </p>
+                    <div class="d-flex  justify-content-around" style="gap: 4.2rem;">
+                        <a class="btn btn-warning w-50">Buy</a>
+                        <button class="btn btn-secondary w-50" (click)="removeFromCart(products?.cartIds[i])">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+</div>

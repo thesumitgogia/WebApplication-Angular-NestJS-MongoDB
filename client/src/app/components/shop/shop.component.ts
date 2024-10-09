@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { ProductComponent } from '../product/product.component';
 import { ShopService } from './shop.service';
+import { catchError, tap } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -129,6 +130,27 @@ export class ShopComponent implements OnInit {
       }
     });
   }
+
+
+
+  error: string = '';
+  product: any[] = [];
+
+
+  // addProductToCart(): void {
+  //   this.cartService.addToCart("productId", "userId").pipe(
+  //     tap(response => {
+  //       console.log('Response from API:', response);
+  //       // this.profile = response
+  //       // this.products = response;
+  //     }),
+  //     catchError(error => {
+  //       console.error('Error occurred:', error);
+  //       this.error = 'Failed to load profile data.';
+  //       return [];
+  //     })
+  //   ).subscribe();
+  // }
 
   // trackById(index: number, item: any): number {
   //   return item.id; // Assuming each item has a unique ID

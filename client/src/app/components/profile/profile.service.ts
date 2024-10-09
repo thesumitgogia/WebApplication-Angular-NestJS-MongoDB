@@ -15,6 +15,6 @@ export class ProfileService implements OnInit {
         console.log("User Token: ", token);
         const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
         const body = { /* your request body */ };
-        return this.http.post(this.apiUrl, body, { headers });
+        return this.http.get(this.apiUrl, { headers });
     }
 }

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from './register.service';
 import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/components/auth/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -34,7 +34,7 @@ export class RegisterFormComponent {
         tap(response => {
           console.log('Response from API:', response);
           localStorage.setItem("authToken", response.user.access_token);
-          this.authService.setLoginStatus(true); 
+          this.authService.setLoginStatus(true);
           this.router.navigate(['/profile']);
         }),
         catchError(error => {
